@@ -44,7 +44,7 @@ function FlipClockCountdown(props: FlipClockCountdownProps) {
     const timeDelta = calcTimeDelta(to);
     return {
       timeDelta,
-      completed: timeDelta.total === 0
+      completed: timeDelta.total <= 0
     };
   }
 
