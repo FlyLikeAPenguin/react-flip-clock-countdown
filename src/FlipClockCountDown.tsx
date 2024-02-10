@@ -34,6 +34,7 @@ function FlipClockCountdown(props: FlipClockCountdownProps) {
   } = props;
   // eslint-disable-next-line @typescript-eslint/no-use-before-define
   const [state, setState] = React.useState<FlipClockCountdownState>(constructState);
+  let completeSent = false;
   const countdownRef = React.useRef(0);
 
   function clearTimer() {
@@ -52,8 +53,8 @@ function FlipClockCountdown(props: FlipClockCountdownProps) {
     const newState = constructState();
     setState(newState);
     onTick(newState);
-    if (newState.completed) {
-      // clearTimer();
+    if (newState.completed && !completeSent) {
+      completeSent = true;
       onComplete();
     }
   }
@@ -63,7 +64,7 @@ function FlipClockCountdown(props: FlipClockCountdownProps) {
     clearTimer();
     countdownRef.current = window.setInterval(tick, 1000);
 
-    return () => clearTimer();
+    return () => {};
   }, [to]);
 
   const containerStyles = React.useMemo<React.CSSProperties>(() => {

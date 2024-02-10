@@ -18,10 +18,10 @@ export function calcTimeDelta(target: Date | number | string): FlipClockCountdow
 
   return {
     total: timeLeft,
-    days: Math.abs(Math.floor(timeLeft / (24 * 60 * 60))),
-    hours: Math.abs(Math.floor((timeLeft / 3600) % 24)),
-    minutes: Math.abs(Math.floor((timeLeft / 60) % 60)),
-    seconds: Math.abs(Math.floor(timeLeft % 60))
+    days: Math.floor(Math.abs(timeLeft / (24 * 60 * 60))),
+    hours: Math.floor(Math.abs((timeLeft / 3600) % 24)),
+    minutes: Math.floor(Math.abs((timeLeft / 60) % 60)),
+    seconds: Math.floor(Math.abs(timeLeft % 60))
   };
 }
 

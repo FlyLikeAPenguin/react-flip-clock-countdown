@@ -8,7 +8,13 @@ const App = () => {
       <h1>React flip-clock countdown</h1>
       <div style={{ marginBottom: 30 }}>
         <h2>Default</h2>
-        <FlipClockCountdown to={new Date().getTime() + 24 * 3600 * 1000 + 5000}>Finished</FlipClockCountdown>
+        <FlipClockCountdown
+          to={new Date().getTime() + 5000}
+          hideOnComplete={false}
+          onComplete={() => console.log('coimplete')}
+        >
+          Finished
+        </FlipClockCountdown>
       </div>
       <div style={{ marginBottom: 30 }}>
         <h1>Default without completion component</h1>
