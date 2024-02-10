@@ -8,18 +8,6 @@
   <img src="./resources/demo.gif" alt="react flip clock countdown demo" width="500" />
 </div>
 
-## Install
-
-```bash
-npm install --save @leenguyen/react-flip-clock-countdown
-```
-
-Or
-
-```bash
-yarn add @leenguyen/react-flip-clock-countdown
-```
-
 ## Props
 
 The <code>FlipClockCountdown</code> has all properties of `div` and additional props below
