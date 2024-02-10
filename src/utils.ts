@@ -15,7 +15,7 @@ export function calcTimeDelta(target: Date | number | string): FlipClockCountdow
   }
   const now = new Date();
   let timeLeft = Math.round((date.getTime() - now.getTime()) / 1000); // convert to seconds
-  if (timeLeft < 0) timeLeft = 0;
+  // if (timeLeft < 0) timeLeft = 0;
 
   return {
     total: timeLeft,
