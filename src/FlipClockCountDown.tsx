@@ -53,7 +53,7 @@ function FlipClockCountdown(props: FlipClockCountdownProps) {
     setState(newState);
     onTick(newState);
     if (newState.completed) {
-      clearTimer();
+      // clearTimer();
       onComplete();
     }
   }
