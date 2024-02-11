@@ -15,14 +15,23 @@ export function calcTimeDelta(target: Date | number | string): FlipClockCountdow
   }
   const now = new Date();
   const timeLeft = (date.getTime() - now.getTime()) / 1000; // convert to seconds
-
-  return {
-    total: timeLeft,
-    days: Math.round(Math.abs(timeLeft / (24 * 60 * 60))),
-    hours: Math.round(Math.abs((timeLeft / 3600) % 24)),
-    minutes: Math.round(Math.abs((timeLeft / 60) % 60)),
-    seconds: Math.round(Math.abs(timeLeft % 60))
-  };
+  if (timeLeft >= 0) {
+    return {
+      total: timeLeft,
+      days: Math.abs(Math.floor(timeLeft / (24 * 60 * 60))),
+      hours: Math.abs(Math.floor((timeLeft / 3600) % 24)),
+      minutes: Math.abs(Math.floor((timeLeft / 60) % 60)),
+      seconds: Math.abs(Math.floor(timeLeft % 60))
+    };
+  } else {
+    return {
+      total: timeLeft,
+      days: Math.abs(Math.ceil(timeLeft / (24 * 60 * 60))),
+      hours: Math.abs(Math.ceil((timeLeft / 3600) % 24)),
+      minutes: Math.abs(Math.ceil((timeLeft / 60) % 60)),
+      seconds: Math.abs(Math.ceil(timeLeft % 60))
+    };
+  }
 }
 
 export function pad(n: number): Digit[] {
