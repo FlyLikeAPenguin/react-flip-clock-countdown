@@ -14,7 +14,8 @@ export function calcTimeDelta(target: Date | number | string): FlipClockCountdow
     throw Error('Invalid date');
   }
   const now = new Date();
-  const timeLeft = Math.abs(date.getTime() - now.getTime()) / 1000; // convert to seconds
+  const timeLeft = Math.round((date.getTime() - now.getTime()) / 1000); // convert to seconds
+
   return {
     total: timeLeft,
     days: Math.floor(Math.abs(timeLeft / (24 * 60 * 60))),
@@ -29,7 +30,7 @@ export function pad(n: number): Digit[] {
 }
 
 export function parseTimeDelta(timeDelta: FlipClockCountdownTimeDelta): FlipClockCountdownTimeDeltaFormatted {
-  const nextTimeDelta = timeDelta; // calcTimeDelta(new Date().getTime() + timeDelta.total * 1000);
+  const nextTimeDelta = calcTimeDelta(new Date().getTime() + timeDelta.total * 1000);
 
   return {
     days: {

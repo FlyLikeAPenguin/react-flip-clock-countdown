@@ -42,7 +42,6 @@ function FlipClockCountdown(props: FlipClockCountdownProps) {
   }
 
   function constructState(): FlipClockCountdownState {
-    console.log(to);
     const timeDelta = calcTimeDelta(to);
     return {
       timeDelta,
