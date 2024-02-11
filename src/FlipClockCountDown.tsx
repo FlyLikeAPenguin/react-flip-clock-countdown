@@ -57,7 +57,6 @@ function FlipClockCountdown(props: FlipClockCountdownProps) {
       completeSent = true;
       onComplete();
     }
-    console.log(newState);
   }
 
   React.useEffect(() => {
