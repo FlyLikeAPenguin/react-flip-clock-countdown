@@ -14,7 +14,7 @@ export function calcTimeDelta(target: Date | number | string): FlipClockCountdow
     throw Error('Invalid date');
   }
   const now = new Date();
-  const timeLeft = (date.getTime() - now.getTime()) / 1000; // convert to seconds
+  const timeLeft = Math.abs((date.getTime() - now.getTime()) / 1000); // convert to seconds
   if (timeLeft >= 0) {
     return {
       total: timeLeft,
