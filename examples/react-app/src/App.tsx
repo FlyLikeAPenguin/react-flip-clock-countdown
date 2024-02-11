@@ -16,7 +16,7 @@ const App = () => {
           Finished
         </FlipClockCountdown>
       </div>
-      <div style={{ marginBottom: 30 }}>
+      {/* <div style={{ marginBottom: 30 }}>
         <h1>Default without completion component</h1>
         <FlipClockCountdown hideOnComplete={false} showLabels={false} to={new Date().getTime() + 1000 * 3} />
       </div>
@@ -71,7 +71,7 @@ const App = () => {
           to={new Date().getTime() + 24 * 3600 * 1000 + 5000}
           renderMap={[false, true, true, true]}
         />
-      </div>
+      </div> */}
     </React.Fragment>
   );
 };
