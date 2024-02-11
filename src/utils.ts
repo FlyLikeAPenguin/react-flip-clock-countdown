@@ -17,10 +17,10 @@ export function calcTimeDelta(target: Date | number | string): FlipClockCountdow
   const timeLeft = (date.getTime() - now.getTime()) / 1000; // convert to seconds
   return {
     total: timeLeft,
-    days: Math.abs(timeLeft / (24 * 60 * 60)),
-    hours: Math.abs((timeLeft / 3600) % 24),
-    minutes: Math.abs((timeLeft / 60) % 60),
-    seconds: Math.abs(timeLeft % 60)
+    days: Math.abs(Math.round(timeLeft / (24 * 60 * 60))),
+    hours: Math.abs(Math.round((timeLeft / 3600) % 24)),
+    minutes: Math.abs(Math.round((timeLeft / 60) % 60)),
+    seconds: Math.abs(Math.round(timeLeft % 60))
   };
 }
 
